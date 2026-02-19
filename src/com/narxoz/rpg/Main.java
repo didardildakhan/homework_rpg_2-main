@@ -6,6 +6,8 @@ import com.narxoz.rpg.loot.LootTable;
 import com.narxoz.rpg.factory.FireFactory;
 import com.narxoz.rpg.factory.EnemyComponentFactory;
 import com.narxoz.rpg.builder.EnemyBuilder;
+import com.narxoz.rpg.prototype.EnemyRegistry;
+
 
 
 public class Main {
@@ -30,5 +32,14 @@ public class Main {
                 .build();
 
         orc.show();
+        EnemyRegistry registry = new EnemyRegistry();
+        registry.register("dragon", goblin);
+
+        Enemy strongEnemy = registry.cloneEnemy("dragon");
+        strongEnemy.health *= 2;
+        strongEnemy.damage *= 2;
+
+        strongEnemy.show();
+
     }
 }
