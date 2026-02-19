@@ -5,6 +5,8 @@ import com.narxoz.rpg.combat.Ability;
 import com.narxoz.rpg.loot.LootTable;
 import com.narxoz.rpg.factory.FireFactory;
 import com.narxoz.rpg.factory.EnemyComponentFactory;
+import com.narxoz.rpg.builder.EnemyBuilder;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -21,5 +23,12 @@ public class Main {
         goblin.loot = fire.createLoot();
 
         goblin.show();
+        Enemy orc = new EnemyBuilder()
+                .setName("Orc")
+                .setHealth(200)
+                .setDamage(25)
+                .build();
+
+        orc.show();
     }
 }
